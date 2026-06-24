@@ -1,0 +1,33 @@
+{
+  "type": "record",
+  "name": "Container",
+  "namespace": "com.example",
+  "fields": [
+    {
+      "name": "items",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "ContainerItem",
+          "fields": [
+            { "name": "id", "type": "string" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "lookup",
+      "type": {
+        "type": "map",
+        "values": {
+          "type": "record",
+          "name": "ContainerValue",
+          "fields": [
+            { "name": "enabled", "type": "boolean" }
+          ]
+        }
+      }
+    }
+  ]
+}

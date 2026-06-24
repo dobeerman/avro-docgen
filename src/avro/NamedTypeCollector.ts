@@ -69,6 +69,16 @@ export class NamedTypeCollector {
       return;
     }
 
+    if (type === "array") {
+      this.visit(value.items, namespace, filePath, namedTypes);
+      return;
+    }
+
+    if (type === "map") {
+      this.visit(value.values, namespace, filePath, namedTypes);
+      return;
+    }
+
     this.visit(type, namespace, filePath, namedTypes);
   }
 }

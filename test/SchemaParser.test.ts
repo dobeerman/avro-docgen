@@ -14,3 +14,15 @@ test("collects named record types from an Avro schema", async () => {
   ]);
   expect(schema.namedTypes[0]?.fields.map((field) => field.name)).toEqual(["id", "line"]);
 });
+
+test("collects named record types nested inside arrays and maps", async () => {
+  const schema = await new SchemaParser(new NodeFileSystem()).parseFile(
+    path.resolve("test/fixtures/nested-records/schemas/container.avsc"),
+  );
+
+  expect(schema.namedTypes.map((type) => type.fullname)).toEqual([
+    "com.example.Container",
+    "com.example.ContainerItem",
+    "com.example.ContainerValue",
+  ]);
+});
