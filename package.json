@@ -16,7 +16,7 @@
     "node": ">=24 <25"
   },
   "bin": {
-    "avro-docgen": "./dist/cli/index.js"
+    "avro-docgen": "dist/cli/index.js"
   },
   "exports": {
     ".": {
