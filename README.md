@@ -53,7 +53,7 @@ pnpm dev generate --schema-root test/fixtures/simple-inline/schemas --output tmp
 Run a one-off CLI through pnpm:
 
 ```sh
-pnpm dlx avro-docgen generate
+pnpm dlx @dobeerman/avro-docgen generate
 ```
 
 ## Configuration

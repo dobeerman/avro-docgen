@@ -1,5 +1,5 @@
 {
-  "name": "avro-docgen",
+  "name": "@dobeerman/avro-docgen",
   "version": "0.1.0",
   "description": "Generate deterministic Markdown documentation from Apache Avro schema files.",
   "homepage": "https://github.com/dobeerman/avro-docgen#readme",
