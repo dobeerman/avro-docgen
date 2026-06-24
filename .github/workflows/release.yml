@@ -2,20 +2,24 @@ name: Release
 
 on:
   workflow_dispatch:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - main
 
 permissions:
-  contents: read
+  contents: write
+  issues: write
+  pull-requests: write
   id-token: write
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Enable Corepack
         run: corepack enable
@@ -32,5 +36,8 @@ jobs:
       - name: Verify
         run: pnpm run ci
 
-      - name: Publish
-        run: pnpm publish --provenance --access public
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
+        run: pnpm release

@@ -22,6 +22,28 @@ pnpm test
 pnpm build
 ```
 
+## Commits and Releases
+
+This repository uses conventional commits, commitlint, Husky, and semantic-release.
+
+Local commits are checked with the repository-local commitlint installation. CI also validates commit messages for pull requests and pushes.
+
+Examples:
+
+```text
+feat: add schema reference resolution
+fix: render nullable defaults deterministically
+chore(release): update release automation
+```
+
+Release-triggering commits:
+
+- `fix:` creates a patch release.
+- `feat:` creates a minor release.
+- commits with `BREAKING CHANGE:` in the footer create a major release.
+
+Publishing is automated from `main` through semantic-release. The release workflow runs `pnpm run ci`, calculates the next version from conventional commits, updates `CHANGELOG.md`, publishes the package to the npm registry, and creates a GitHub release. npm trusted publishing/OIDC should be configured for the repository before the first real release.
+
 Run the CLI during development:
 
 ```sh
