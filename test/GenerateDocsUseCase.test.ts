@@ -40,7 +40,7 @@ test("generates a README from simple fixture schemas", async () => {
   expect(output).toContain("# Avro Schema Documentation");
   expect(output).toContain("## com.example.User");
   expect(output).toContain("| id | `string` |  | Stable user identifier. |");
-  expect(output).toContain("| age | `null | int` | `null` | Optional age in years. |");
+  expect(output).toContain("| age | `int (nullable)` | `null` | Optional age in years. |");
 });
 
 function createUseCase(): GenerateDocsUseCase {

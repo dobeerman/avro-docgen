@@ -19,10 +19,24 @@ export function formatAvroType(type: AvroType): string {
   }
 
   if (Array.isArray(type)) {
+    const nonNullTypes = type.filter((item) => item !== "null");
+
+    if (nonNullTypes.length === 1 && nonNullTypes.length !== type.length) {
+      return `${formatAvroType(nonNullTypes[0] as AvroType)} (nullable)`;
+    }
+
     return type.map(formatAvroType).join(" | ");
   }
 
   if (typeof type.type === "string") {
+    if (type.type === "array") {
+      return `array<${formatAvroType(readNestedType(type.items))}>`;
+    }
+
+    if (type.type === "map") {
+      return `map<${formatAvroType(readNestedType(type.values))}>`;
+    }
+
     const base = typeof type.name === "string" ? type.name : type.type;
     return typeof type.logicalType === "string" ? `${base} (${type.logicalType})` : base;
   }
@@ -33,6 +47,18 @@ export function formatAvroType(type: AvroType): string {
 
   if (typeof type.type === "object" && type.type !== null) {
     return formatAvroType(type.type);
+  }
+
+  return "unknown";
+}
+
+function readNestedType(value: unknown): AvroType {
+  if (typeof value === "string" || Array.isArray(value)) {
+    return value as AvroType;
+  }
+
+  if (typeof value === "object" && value !== null) {
+    return value as AvroType;
   }
 
   return "unknown";
