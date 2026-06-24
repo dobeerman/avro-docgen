@@ -1,6 +1,3 @@
-const nextReleaseNotes = "$" + "{nextRelease.notes}";
-const nextReleaseVersion = "$" + "{nextRelease.version}";
-
 export default {
   branches: ["main"],
   plugins: [
@@ -29,12 +26,5 @@ export default {
       },
     ],
     "@semantic-release/github",
-    [
-      "@semantic-release/git",
-      {
-        assets: ["CHANGELOG.md", "package.json", "pnpm-lock.yaml"],
-        message: `chore(release): ${nextReleaseVersion} [skip ci]\n\n${nextReleaseNotes}`,
-      },
-    ],
   ],
 };

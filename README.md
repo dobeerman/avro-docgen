@@ -42,7 +42,7 @@ Release-triggering commits:
 - `feat:` creates a minor release.
 - commits with `BREAKING CHANGE:` in the footer create a major release.
 
-Publishing is automated from `main` through semantic-release. The release workflow runs `pnpm run ci`, calculates the next version from conventional commits, updates `CHANGELOG.md`, publishes the package to the npm registry, and creates a GitHub release. npm trusted publishing/OIDC should be configured for the repository before the first real release.
+Publishing is automated from `main` through semantic-release. The release workflow runs `pnpm run ci`, calculates the next version from conventional commits, publishes the package to the npm registry, generates release notes, and creates a GitHub release. npm trusted publishing/OIDC should be configured for the repository before the first real release.
 
 Run the CLI during development:
 
