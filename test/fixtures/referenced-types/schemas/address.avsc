@@ -1,0 +1,8 @@
+{
+  "type": "record",
+  "name": "Address",
+  "namespace": "com.example",
+  "fields": [
+    { "name": "city", "type": "string" }
+  ]
+}

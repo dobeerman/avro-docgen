@@ -1,0 +1,5 @@
+{
+  "schemaRoots": ["test/fixtures/simple-inline/schemas"],
+  "schemaPatterns": ["**/*.avsc"],
+  "outputDir": "docs/avro"
+}

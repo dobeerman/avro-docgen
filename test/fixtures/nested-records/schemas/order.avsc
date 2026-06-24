@@ -1,0 +1,18 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "com.example",
+  "fields": [
+    { "name": "id", "type": "string" },
+    {
+      "name": "line",
+      "type": {
+        "type": "record",
+        "name": "OrderLine",
+        "fields": [
+          { "name": "sku", "type": "string" }
+        ]
+      }
+    }
+  ]
+}

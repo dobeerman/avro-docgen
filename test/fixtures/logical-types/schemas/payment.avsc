@@ -1,0 +1,8 @@
+{
+  "type": "record",
+  "name": "Payment",
+  "namespace": "com.example",
+  "fields": [
+    { "name": "createdAt", "type": { "type": "long", "logicalType": "timestamp-millis" } }
+  ]
+}

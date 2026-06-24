@@ -1,0 +1,9 @@
+{
+  "type": "record",
+  "name": "TreeNode",
+  "namespace": "com.example",
+  "fields": [
+    { "name": "value", "type": "string" },
+    { "name": "children", "type": { "type": "array", "items": "com.example.TreeNode" } }
+  ]
+}

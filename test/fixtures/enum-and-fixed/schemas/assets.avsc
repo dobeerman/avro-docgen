@@ -1,0 +1,14 @@
+[
+  {
+    "type": "enum",
+    "name": "AssetKind",
+    "namespace": "com.example",
+    "symbols": ["IMAGE", "VIDEO"]
+  },
+  {
+    "type": "fixed",
+    "name": "Checksum",
+    "namespace": "com.example",
+    "size": 16
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "name": "avro-docgen",
+  "version": "0.1.0",
+  "description": "Generate deterministic Markdown documentation from Apache Avro schema files.",
+  "type": "module",
+  "packageManager": "pnpm@11.6.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "bin": {
+    "avro-docgen": "./dist/cli/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/cli/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "ci": "pnpm typecheck && pnpm check && pnpm test && pnpm build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "commander": "^14.0.0",
+    "cosmiconfig": "^9.0.0",
+    "fast-glob": "^3.3.3",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.1",
+    "@types/node": "^24.0.0",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.0",
+    "typescript": "^6.0.0",
+    "vitest": "^3.2.0"
+  },
+  "keywords": [
+    "avro",
+    "documentation",
+    "markdown",
+    "cli"
+  ],
+  "license": "MIT"
+}

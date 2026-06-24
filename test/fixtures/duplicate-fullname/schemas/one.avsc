@@ -1,0 +1,6 @@
+{
+  "type": "record",
+  "name": "Duplicate",
+  "namespace": "com.example",
+  "fields": []
+}
