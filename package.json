@@ -2,6 +2,14 @@
   "name": "avro-docgen",
   "version": "0.1.0",
   "description": "Generate deterministic Markdown documentation from Apache Avro schema files.",
+  "homepage": "https://github.com/dobeerman/avro-docgen#readme",
+  "bugs": {
+    "url": "https://github.com/dobeerman/avro-docgen/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dobeerman/avro-docgen.git"
+  },
   "type": "module",
   "packageManager": "pnpm@11.6.0",
   "engines": {
@@ -18,7 +26,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "tsup",
@@ -53,7 +62,6 @@
     "@commitlint/config-conventional": "^21.0.2",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^12.0.8",
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.1",
